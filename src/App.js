@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import ReactPaginate from "react-paginate";
 import CurrencyList from "./CurrencyList";
+import SearchBar from "./SearchBar";
 
 import "./App.css";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [state, setState] = useState([]);
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
 
   // Mock API call
   useEffect(() => {
@@ -16,12 +18,12 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setData(data);
+        setState(data);
       });
   }, []);
 
-  // Pagination logic from https://ihsavru.medium.com/react-paginate-implementing-pagination-in-react-f199625a5c8e
+  // Pagination logic derived from https://ihsavru.medium.com/react-paginate-implementing-pagination-in-react-f199625a5c8e
   const perPage = 25;
   const offset = currentPage * perPage;
   const currentPageData = data.slice(offset, offset + perPage);
@@ -31,10 +33,19 @@ function App() {
     setCurrentPage(e.selected);
   };
 
+  function filterRes(input, data) {
+    const userInput = input.toLowerCase();
+    const result = data.filter((coin) => {
+      return coin.name.toLowerCase().includes(userInput);
+    });
+    return setData(result);
+  }
+
   return (
     <div>
       <Header />
       <div className="border p-2">
+        <SearchBar data={state} handler={filterRes} />
         <div className="">
           {data.length === 0 ? (
             "Loading..."
