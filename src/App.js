@@ -3,7 +3,6 @@ import Header from "./Header";
 import ReactPaginate from "react-paginate";
 import CurrencyList from "./CurrencyList";
 
-import Container from "react-bootstrap/Container";
 import "./App.css";
 
 function App() {
@@ -12,17 +11,20 @@ function App() {
 
   // Mock API call
   useEffect(() => {
-    setTimeout(function () {
-      setData([...Array(200).keys()]);
-    }, 3000);
+    fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=aud&order=market_cap_desc&per_page=100&page=1&sp"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setData(data);
+      });
   }, []);
 
   // Pagination logic from https://ihsavru.medium.com/react-paginate-implementing-pagination-in-react-f199625a5c8e
   const perPage = 25;
   const offset = currentPage * perPage;
-  const currentPageData = data
-    .slice(offset, offset + perPage)
-    .map((slice) => slice);
+  const currentPageData = data.slice(offset, offset + perPage);
   const pageCount = Math.ceil(data.length / perPage);
 
   const handlePageClick = (e) => {
@@ -32,27 +34,28 @@ function App() {
   return (
     <div>
       <Header />
-      <Container className="border">
-        <div className="commentBox">
+      <div className="border p-2">
+        <div className="">
           {data.length === 0 ? (
             "Loading..."
           ) : (
             <CurrencyList data={currentPageData} />
           )}
+
+          <ReactPaginate
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination"}
+            activeClassName={"active"}
+          />
         </div>
-        <ReactPaginate
-          previousLabel={"Previous"}
-          nextLabel={"Next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          activeClassName={"active"}
-        />
-      </Container>
+      </div>
     </div>
   );
 }
