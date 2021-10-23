@@ -3,23 +3,36 @@ import Header from "./Header";
 import ReactPaginate from "react-paginate";
 import CurrencyList from "./CurrencyList";
 import SearchBar from "./SearchBar";
+import LoadingState from "./LoadingState";
+import Footer from "./Footer";
+import Error from "./Error";
 
+import axios from "axios";
 import "./App.css";
 
 function App() {
   const [state, setState] = useState([]);
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  // Mock API call
+  // API call
   useEffect(() => {
-    fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=aud&order=market_cap_desc&per_page=100&page=1&sp"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        setState(data);
+    axios({
+      url: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=aud&order=market_cap_desc&per_page=250&page=1&sp",
+    })
+      .then((response) => {
+        console.log(response);
+        setData(response.data);
+        setState(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(true);
+        console.log(error.toJSON());
+        setErrorMessage(error.toJSON().status);
       });
   }, []);
 
@@ -46,27 +59,33 @@ function App() {
       <Header />
       <div className="border p-2">
         <SearchBar data={state} handler={filterRes} />
-        <div className="">
-          {data.length === 0 ? (
-            "Loading..."
+        <div className="border">
+          {loading ? (
+            <LoadingState />
+          ) : error ? (
+            <Error error={errorMessage} />
+          ) : data.length === 0 ? (
+            "Woops, no currencies with that search term, try another one..."
           ) : (
             <CurrencyList data={currentPageData} />
           )}
-
-          <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination"}
-            activeClassName={"active"}
-          />
+          {data.length > 25 && !error && (
+            <ReactPaginate
+              previousLabel={"Previous"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              activeClassName={"active"}
+            />
+          )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

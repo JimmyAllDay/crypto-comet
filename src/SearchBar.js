@@ -7,6 +7,7 @@ function SearchBar(props) {
       <input
         className="w-100"
         onChange={(e) => props.handler(e.target.value, props.data)}
+        placeholder="Search Cryptocurrencies"
       />
     </div>
   );
