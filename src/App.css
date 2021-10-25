@@ -1,45 +1,47 @@
+/* Variables */
+:root {
+  --cadet: #ffdd9f;
+  --border: #ffb224;
+  --charleston-green: #364044;
+  --columbia-blue: #c0d6df;
+  --alice-blue: #dbe9ee;
+  --blue-yonder: #4a6fa5;
+  --blue-yonder-light: #c6d4e9;
+  --blue-yonder-light-light: #d8e6fc;
+  --blue-yonder-dull-light: #aebcd3;
+  --carolina-blue: #2c9fdd;
+  --carolina-blue-light: #7ed2ff;
+  --footer-background: white;
+  --footer-content: var(--blue-yonder);
+  --coin-background: rgba(255, 255, 255, 0);
+}
+
+/* Set font and background colors */
+* {
+  background-color: var(--blue-yonder-light);
+  color: var(--charleston-green);
+  text-decoration: none;
+}
+
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  color: white;
+  text-decoration: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+a:hover {
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* Spinner Element */
 .icon-container {
   height: 30px;
   width: 30px;
+}
+.icon-container-header {
+  height: 30px;
+  width: 30px;
+  padding-top: 3px;
 }
 img {
   max-width: 100%;
@@ -64,7 +66,7 @@ img {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: cornflowerblue;
+  background: var(--blue-yonder);
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
@@ -130,4 +132,170 @@ img {
   100% {
     transform: rotate(360deg);
   }
+}
+/* Nav Styling */
+.brand-logo {
+  color: var(--charleston-green);
+  background-color: var(--cadet) !important;
+  font-weight: 500;
+  font-size: 20pt;
+}
+.nav-container-div {
+  background-color: var(--cadet) !important;
+}
+.cryptologo {
+  background-color: var(--cadet) !important;
+}
+
+.image-container {
+  height: 50px;
+  width: 50px;
+  background-color: var(--cadet) !important;
+}
+.cryptologo {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  background-color: var(--cadet) !important;
+}
+
+.nav-bar {
+  height: 60px;
+  background-color: var(--cadet);
+  border-bottom: var(--border) 1px solid;
+}
+.nav-container {
+  background-color: var(--cadet);
+}
+.search-bar-container {
+  background-color: var(--blue-yonder-light);
+}
+.search-bar {
+  background-color: white;
+  border: var(--charleston-green) 1px solid;
+  border-radius: 3px;
+  height: 45px;
+  font-size: 1.5em;
+  padding: 10px;
+}
+.search-bar::placeholder {
+  color: var(--blue-yonder-light);
+  font-size: 1em;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* Currenc container and coin components */
+.coin-container {
+  background-color: white;
+}
+.image-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.image-wrap-bg {
+  margin-top: 100px;
+  background-color: white;
+  opacity: 0.3;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
+.coin {
+  background-color: var(--coin-background);
+}
+.coin > * {
+  background-color: var(--coin-background);
+}
+.icon {
+  background-color: var(--coin-background);
+}
+
+/* Pagination Component Styling */
+
+/* Block element container */
+.pagination-container {
+  background-color: var(--blue-yonder-light);
+}
+
+.pagination-links,
+.pagination-l-n-links {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  background-color: var(--blue-yonder-light);
+}
+
+.pag-page,
+.pag-break {
+  text-align: center;
+  color: white;
+  background-color: var(--blue-yonder-light);
+  width: 40px;
+  border: 1px solid var(--blue-yonder-dull-light);
+  user-select: none;
+}
+.active-pag {
+  color: var(--blue-yonder-dull-light);
+  background-color: var(--blue-yonder-dull-light);
+}
+.active-pag a {
+  background-color: var(--blue-yonder-dull-light);
+}
+.pagination-prev,
+.pagination-next {
+  text-align: center;
+  color: white;
+  font-size: 1em;
+  width: 60px;
+  border: 1px solid var(--blue-yonder-dull-light);
+  border-radius: 3px;
+}
+.pagination-prev {
+  margin-inline-end: 15px;
+  user-select: none;
+}
+.pagination-next {
+  margin-inline-start: 15px;
+  user-select: none;
+}
+
+/* Footer */
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background-color: var(--footer-background);
+  border-top: var(--blue-yonder) 1px solid;
+}
+
+.footer-content {
+  color: var(--footer-content);
+  background-color: var(--footer-background);
+}
+
+.footer a {
+  font-size: 0.8em;
+  text-decoration: none;
+  color: var(--footer-content);
+  background-color: var(--footer-background);
+}
+.footer p {
+  font-size: 0.8em;
+  text-decoration: none;
+  color: var(--footer-content);
+  background-color: var(--footer-background);
+}
+
+.error {
+  background-color: white !important;
+  border: 1px black solid;
 }
