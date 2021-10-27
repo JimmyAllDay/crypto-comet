@@ -5,7 +5,7 @@ import cryptoicon from "./Assets/cryptoicon.svg";
 
 function Header() {
   return (
-    <div className="nav-container h-75 nav-bar">
+    <header className="nav-container h-75 nav-bar">
       <Navbar.Brand className="nav-container-div d-flex h-75 ms-5" href="#home">
         <h5 className="brand-logo my-auto">Crypto Comet</h5>
         <div className="image-container h-100">
@@ -16,7 +16,7 @@ function Header() {
           />
         </div>
       </Navbar.Brand>
-    </div>
+    </header>
   );
 }
 

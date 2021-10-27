@@ -2,7 +2,7 @@
 :root {
   --cadet: #ffdd9f;
   --border: #ffb224;
-  --charleston-green: #364044;
+  --charleston-green: #0d0d0e;
   --columbia-blue: #c0d6df;
   --alice-blue: #dbe9ee;
   --blue-yonder: #4a6fa5;
@@ -22,9 +22,19 @@
   color: var(--charleston-green);
   text-decoration: none;
 }
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-content: stretch;
+}
 
 .App {
   text-align: center;
+  min-height: 100vh;
 }
 a {
   color: white;
@@ -48,15 +58,20 @@ img {
   max-height: 100%;
   display: block;
 }
-
+/* Lading state spinner derrived from external source */
+.loading-state {
+  background-color: rgba(255, 255, 255, 0);
+}
+/*  */
 .lds-roller {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0);
 }
 .lds-roller div {
-  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: lds-roller 2s cubic-bezier(0.4, 0.4, 0.1, 1) infinite;
   transform-origin: 40px 40px;
 }
 .lds-roller div:after {
@@ -66,6 +81,7 @@ img {
   width: 7px;
   height: 7px;
   border-radius: 50%;
+  opacity: 0.7;
   background: var(--blue-yonder);
   margin: -4px 0 0 -4px;
 }
@@ -190,6 +206,7 @@ select:focus {
 }
 
 /* Currenc container and coin components */
+
 .coin-container {
   background-color: white;
 }
@@ -198,14 +215,15 @@ select:focus {
   position: relative;
 }
 .image-wrap-bg {
-  margin-top: 100px;
   background-color: white;
-  opacity: 0.3;
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: auto;
+}
+.image-wrap-bg-nodata {
+  display: none;
 }
 
 .coin {
@@ -218,9 +236,14 @@ select:focus {
   background-color: var(--coin-background);
 }
 
+.spacer {
+  margin-top: auto;
+  background-color: var(--blue-yonder-light);
+  flex-grow: 3;
+}
+
 /* Pagination Component Styling */
 
-/* Block element container */
 .pagination-container {
   background-color: var(--blue-yonder-light);
 }
@@ -269,8 +292,7 @@ select:focus {
 
 /* Footer */
 
-.footer {
-  bottom: 0;
+footer {
   width: 100%;
   height: 150px;
   background-color: var(--footer-background);
@@ -282,13 +304,13 @@ select:focus {
   background-color: var(--footer-background);
 }
 
-.footer a {
+.footer-content a {
   font-size: 0.8em;
   text-decoration: none;
   color: var(--footer-content);
   background-color: var(--footer-background);
 }
-.footer p {
+.footer-content p {
   font-size: 0.8em;
   text-decoration: none;
   color: var(--footer-content);
@@ -297,5 +319,8 @@ select:focus {
 
 .error {
   background-color: white !important;
-  border: 1px black solid;
+}
+
+.no-currencies {
+  background-color: white;
 }

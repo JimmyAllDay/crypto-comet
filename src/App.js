@@ -52,11 +52,12 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
       <Header />
       <SearchBar data={state} handler={filterRes} />
       <CurrencyContainer
         loading={loading}
+        error={error}
         errorMessage={errorMessage}
         data={data}
         pagData={currentPageData}
@@ -64,6 +65,7 @@ function App() {
       {!loading && data.length > 25 && !error && (
         <PaginationComp pageCount={pageCount} clickHandler={handlePageClick} />
       )}
+      <div className="spacer flex-grow"></div>
       <Footer />
     </div>
   );

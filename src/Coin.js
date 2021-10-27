@@ -1,7 +1,6 @@
 import React from "react";
 
 function Coin(props) {
-  console.log(props);
   const {
     market_cap_rank,
     image,
