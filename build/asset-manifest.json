@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/crypto-comet-component/static/css/main.7a41f0fb.chunk.css",
+    "main.js": "/crypto-comet-component/static/js/main.ca457463.chunk.js",
+    "main.js.map": "/crypto-comet-component/static/js/main.ca457463.chunk.js.map",
+    "runtime-main.js": "/crypto-comet-component/static/js/runtime-main.7405dd13.js",
+    "runtime-main.js.map": "/crypto-comet-component/static/js/runtime-main.7405dd13.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/crypto-comet-component/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.1eca8f69.chunk.js": "/crypto-comet-component/static/js/2.1eca8f69.chunk.js",
+    "static/js/2.1eca8f69.chunk.js.map": "/crypto-comet-component/static/js/2.1eca8f69.chunk.js.map",
+    "static/js/3.5941467d.chunk.js": "/crypto-comet-component/static/js/3.5941467d.chunk.js",
+    "static/js/3.5941467d.chunk.js.map": "/crypto-comet-component/static/js/3.5941467d.chunk.js.map",
+    "index.html": "/crypto-comet-component/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/crypto-comet-component/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.7a41f0fb.chunk.css.map": "/crypto-comet-component/static/css/main.7a41f0fb.chunk.css.map",
+    "static/js/2.1eca8f69.chunk.js.LICENSE.txt": "/crypto-comet-component/static/js/2.1eca8f69.chunk.js.LICENSE.txt",
+    "static/media/comet.b1942e85.svg": "/crypto-comet-component/static/media/comet.b1942e85.svg",
+    "static/media/cryptoicon.4beb6e3a.svg": "/crypto-comet-component/static/media/cryptoicon.4beb6e3a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7405dd13.js",
+    "static/css/2.0a9ec390.chunk.css",
+    "static/js/2.1eca8f69.chunk.js",
+    "static/css/main.7a41f0fb.chunk.css",
+    "static/js/main.ca457463.chunk.js"
+  ]
+}
