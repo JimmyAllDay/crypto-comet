@@ -72,3 +72,15 @@ function App() {
 }
 
 export default App;
+
+// TODOS:
+// Build out tests, focussing on logic and use these in TDD for future updates
+// User is currently able to click on a link (for eg, page 6) in the pagination component, then enter a search criteria, and see no results,
+// despite that results are available in the data array - logic needs to be updated to take user back to last populated page on user filter of data array
+// the div with className 'spacer' should move into a component - this is unecessarily cluttering the App.js file though is behaving erratically when encolsed within a component.
+// Repsonsive design needs to be updated for the coin and header components - d-none classes applied to relevant divs are not registering in the DOM
+// Address additional items in the spec - include new tab for most popular currencies - axios can be used to make simulatenous api calls
+// Build out additional component for each coin, that navigates to a detailed display for the coin, and shows a ticker for the price of the selected coin
+// Include 'favourites' component that allows users to push coins into a new array, where components display additional info, such as fluctutations over longer time-periods
+// Footer can be further developed
+// bakground image behaviour can be refined
