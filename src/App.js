@@ -44,6 +44,8 @@ function App() {
   };
 
   function filterRes(input, data) {
+    input === "" && setData(state);
+    currentPage !== 0 && setCurrentPage(0);
     const userInput = input.toLowerCase();
     const result = data.filter((coin) => {
       return coin.name.toLowerCase().includes(userInput);
