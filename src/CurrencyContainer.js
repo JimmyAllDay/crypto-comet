@@ -14,8 +14,8 @@ function CurrencyList(props) {
   });
 
   return (
-    <div className="outer-coin-container pt-">
-      <div className="mx-5 border mt-4 pb-2 rounded-1 border border-dark coin-container image-wrap">
+    <div className="outer-coin-container">
+      <div className="border mt-4 pb-2 rounded-1 border border-dark coin-container image-wrap">
         {!loading && !error && data.length > 5 && (
           <BgImage opacity={0.3} background={background} />
         )}

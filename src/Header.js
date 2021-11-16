@@ -1,22 +1,29 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
+
+import { Link } from "react-router-dom";
 
 import cryptoicon from "./Assets/cryptoicon.svg";
 
 function Header() {
   return (
-    <header className="nav-container h-75 nav-bar">
-      <Navbar.Brand className="nav-container-div d-flex h-75 ms-5" href="#home">
-        <h5 className="brand-logo my-auto">Crypto Comet</h5>
-        <div className="image-container h-100">
-          <img
-            src={cryptoicon}
-            className="cryptologo my-auto ms-3"
-            alt="Crypto Comet Logo"
-          />
-        </div>
-      </Navbar.Brand>
-    </header>
+    <nav className="nav d-flex">
+      <a className="navbar-brand ms-5" href="#">
+        Crypto Comet
+      </a>
+      <div className="image-container">
+        <img
+          src={cryptoicon}
+          className="cryptologo"
+          alt="crypto comet logo"
+        ></img>
+      </div>
+      <div className="ms-5 my-auto">
+        <Link to="/search">Search</Link>
+      </div>
+      <div className="ms-5 my-auto">
+        <Link to="/trending">Trending</Link>
+      </div>
+    </nav>
   );
 }
 

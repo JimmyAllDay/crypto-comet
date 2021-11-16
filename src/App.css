@@ -2,7 +2,8 @@
 :root {
   --cadet: #ffdd9f;
   --border: #ffb224;
-  --charleston-green: #0d0d0e;
+  --nav-font: #1f1f1f;
+  --nav-font-hover: #3f3f3f;
   --columbia-blue: #c0d6df;
   --alice-blue: #dbe9ee;
   --blue-yonder: #4a6fa5;
@@ -37,22 +38,10 @@ body {
   text-align: center;
   min-height: 100vh;
 }
-a {
-  color: white;
-  text-decoration: none;
-  -webkit-appearance: none;
+.app-container {
+  min-height: "100vh";
 }
-a:hover {
-  color: white;
-  -webkit-appearance: none;
-}
-a:select {
-  -webkit-appearance: none;
-}
-a:focus {
-  outline: 0;
-  -webkit-appearance: none;
-}
+
 /* Spinner Element */
 .icon-container {
   height: 30px;
@@ -72,6 +61,7 @@ img {
 .loading-state {
   background-color: rgba(255, 255, 255, 0);
 }
+
 /*  */
 .lds-roller {
   display: inline-block;
@@ -159,51 +149,81 @@ img {
     transform: rotate(360deg);
   }
 }
+
 /* Nav Styling */
-.brand-logo {
-  color: var(--charleston-green);
-  background-color: var(--cadet) !important;
+
+.nav {
+  background-color: white;
+  border-bottom: var(--nav-font) 1px solid;
+}
+
+.navbar-brand {
   font-weight: 500;
   font-size: 20pt;
+  color: var(--nav-font);
 }
-.nav-container-div {
-  background-color: var(--cadet) !important;
-}
-.cryptologo {
-  background-color: var(--cadet) !important;
+
+.navbar-brand:hover {
+  font-weight: 500;
+  font-size: 20pt;
+  color: var(--nav-font);
 }
 
 .image-container {
   height: 50px;
   width: 50px;
-  background-color: var(--cadet) !important;
 }
+
 .cryptologo {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
-  background-color: var(--cadet) !important;
 }
 
-.nav-bar {
-  height: 60px;
-  background-color: var(--cadet);
-  border-bottom: var(--border) 1px solid;
+.navbar,
+.nav-container,
+.navbar-brand,
+.image-container,
+.cryptologo,
+.nav-menu,
+.nav-link,
+.navbar-toggler-icon,
+nav div {
+  background-color: white;
 }
-.nav-container {
-  background-color: var(--cadet);
+
+.navbar-toggler-icon {
+  color: var(--nav-font);
 }
-.search-bar-container {
-  background-color: var(--blue-yonder-light);
+
+nav a {
+  color: var(--nav-font);
+  background-color: white;
+  text-decoration: none;
+  -webkit-appearance: none;
 }
+nav a:hover {
+  color: var(--nav-font-hover);
+  -webkit-appearance: none;
+}
+nav a:select {
+  -webkit-appearance: none;
+}
+nav a:focus {
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+/* Search Page */
 .search-bar {
   background-color: white;
-  border: var(--charleston-green) 1px solid;
+  border: black 1px solid;
   border-radius: 3px;
   height: 45px;
   font-size: 1.5em;
   padding: 10px;
 }
+
 .search-bar::placeholder {
   color: var(--blue-yonder-light);
   font-size: 1em;
@@ -215,7 +235,7 @@ select:focus {
   outline: none;
 }
 
-/* Currenc container and coin components */
+/* Currency container and coin components */
 
 .coin-container {
   background-color: white;
@@ -306,7 +326,7 @@ footer {
   width: 100%;
   height: 150px;
   background-color: var(--footer-background);
-  border-top: var(--blue-yonder) 1px solid;
+  border-top: var(--nav-font) 1px solid;
 }
 
 .footer-content {

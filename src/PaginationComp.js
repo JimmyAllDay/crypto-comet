@@ -13,7 +13,7 @@ function PaginationComp(props) {
       previousLabel={"prev"}
       nextLabel={"next"}
       breakLabel={"..."}
-      containerClassName={"pagination mx-5 mt-2"}
+      containerClassName={"pagination mt-2"}
       previousClassName={"pagination-prev"}
       nextClassName={"pagination-next"}
       previousLinkClassName={"pagination-l-n-links"}
