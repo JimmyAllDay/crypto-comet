@@ -6,11 +6,14 @@ function CoinsHeader() {
       <div className="col-1 m-auto text-center">No</div>
       <div className="col-1 m-auto icon-container-header">Logo</div>
       <div className="col-3 m-auto m-1 text-center">Currency</div>
-      <div className="col-1 m-auto  m-1 text-center">Symbol</div>
+      <div className="col-1 m-auto  m-1 text-center d-none d-md-inline">
+        Symbol
+      </div>
       <div className="col-2 m-auto  m-1 text-center">Price</div>
-      <div className="col m-auto m-1 text-center">24h price dif</div>
-      <div className="col m-auto m-1 text-center">24h high</div>
-      <div className="col m-auto m-1 text-center">24h low</div>
+      <div className="col m-auto m-1 text-center d-none d-md-inline">
+        24h price dif
+      </div>
+      <div className="col-2 m-auto m-1 text-center">Favourite</div>
     </div>
   );
 }

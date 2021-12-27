@@ -1,6 +1,6 @@
 # Crypto Comet
 
-This project is a small react component that makes a call to the Coin Gecko api and present information to the user.
+This project presents data from various APIs, mostly available through the CoinGecko platform.
 
 ## Instructions
 

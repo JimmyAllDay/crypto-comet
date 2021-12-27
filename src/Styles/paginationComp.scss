@@ -1,0 +1,43 @@
+/* Pagination Component Styling */
+.pagination-container {
+  .active-pag {
+    background-color: secondary;
+  }
+  a:hover {
+    color: white;
+  }
+}
+
+.pagination-links,
+.pagination-l-n-links {
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+}
+
+.pag-page,
+.pag-break {
+  text-align: center;
+  color: white;
+  width: 1.7em;
+  user-select: none;
+}
+
+.active-pag a {
+  background-color: var(--blue-yonder-dull-light);
+}
+.pagination-prev,
+.pagination-next {
+  text-align: center;
+  color: white;
+  font-size: 1em;
+  width: 3em;
+  border: 1px solid var(--blue-yonder-dull-light);
+  border-radius: 3px;
+}
+.pagination-prev {
+  user-select: none;
+}
+.pagination-next {
+  user-select: none;
+}

@@ -1,0 +1,45 @@
+@import "./custom.scss";
+
+body {
+  background-color: rgb(37, 37, 37);
+}
+
+// /* Nav Styling */
+Navbar {
+  height: 60px;
+}
+
+/* Search Page */
+.search-bar {
+  height: 45px;
+  font-size: 1.5em;
+  padding: 10px;
+}
+
+.search-bar::placeholder {
+  color: #c6d4e9;
+  font-size: 1em;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* Currency container and coin components */
+.image-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.image-wrap-bg {
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+.image-wrap-bg-nodata {
+  display: none;
+}

@@ -1,3 +1,16 @@
+// Color Customisations
+$theme-colors: (
+  "primary": #c6d4e9,
+  "secondary": #ffdd9f,
+  "dark": rgb(37, 37, 37),
+  "light": white,
+  "info": teal,
+  "danger": orangered,
+);
+
+// import bootstrap stylesheet
+@import "~bootstrap/scss/bootstrap";
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
 body {
