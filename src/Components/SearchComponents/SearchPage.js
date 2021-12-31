@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CurrencyContainer from "./CurrencyContainer";
 import PaginationComp from "./PaginationComp";
 
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, InputGroup, FormControl } from "react-bootstrap";
 
 function SearchPage(props) {
   const [currentPage, setCurrentPage] = useState(0);
@@ -28,15 +28,20 @@ function SearchPage(props) {
   }
 
   return (
-    <Container fluid className="p-0">
-      <Row className="h-auto">
-        <div className="mt-1 px-3">
-          <input
-            className="w-100 search-bar"
-            onChange={(e) => filterRes(e.target.value, props.state)}
+    <Container fluid className="p-0 min-vh-100">
+      <Row className="mt-1 mx-1 d-flex">
+        <InputGroup className="mb-1 w-100 p-0 border border-dark rounded-2">
+          <FormControl
+            type="search"
+            className="search-bar"
             placeholder="Search currencies"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+            onChange={(e) => filterRes(e.target.value, props.state)}
           />
-        </div>
+        </InputGroup>
+      </Row>
+      <Row>
         <div className="mt-1 px-3">
           <CurrencyContainer
             addFav={props.addFav}

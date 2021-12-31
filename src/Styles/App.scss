@@ -10,6 +10,10 @@ Navbar {
 }
 
 /* Search Page */
+input:focus {
+  outline: none !important;
+}
+
 .search-bar {
   height: 45px;
   font-size: 1.5em;
@@ -21,9 +25,7 @@ Navbar {
   font-size: 1em;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+input:focus {
   outline: none;
 }
 

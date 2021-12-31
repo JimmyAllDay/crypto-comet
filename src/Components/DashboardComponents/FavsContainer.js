@@ -7,7 +7,6 @@ import { ImCancelCircle } from "react-icons/im";
 import "../../Styles/favourites.scss";
 
 function FavsContainer(props) {
-  console.log(props);
   const favCoins = props.favs.map((fav, i) => {
     return (
       <div

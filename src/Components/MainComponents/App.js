@@ -112,50 +112,64 @@ function App() {
 
   // Get data for selected favourite currency
   const addFav = (searchData) => {
-    // http request variables
-    // get date range
-    const today = new Date();
-    const yearAgoSecs = Math.round(
-      today.setFullYear(today.getFullYear() - 1) / 1000
-    );
-    const todaySecs = Math.round(Date.now() / 1000);
-
-    //  Base URL
-    const baseURL = "https://api.coingecko.com/api/v3/coins/";
-    // Request URL
-    const requestURL = `${baseURL}${searchData.id}/market_chart/range?vs_currency=usd&from=${yearAgoSecs}&to=${todaySecs}`;
-
-    // HTTP call
-    axios({ url: requestURL })
-      .then((response) => {
-        if (favs.length === 0) {
-          setFavs([
-            ...favs,
-            {
-              name: searchData.name,
-              image: searchData.image,
-              data: response.data,
-            },
-          ]),
-            setCurrentFav({
-              name: searchData.name,
-              image: searchData.image,
-              data: response.data,
-            });
-        } else {
-          setFavs([
-            ...favs,
-            {
-              name: searchData.name,
-              image: searchData.image,
-              data: response.data,
-            },
-          ]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
+    // check if favourite is present in favs array
+    const coin = searchData.id;
+    const checkFav = () =>
+      favs.filter((fav) => {
+        return fav.name.toLowerCase() === coin.toLowerCase();
       });
+
+    const beenfavved = checkFav();
+
+    if (beenfavved.length !== 1) {
+      // http request variables
+      // get date range
+      const today = new Date();
+      const yearAgoSecs = Math.round(
+        today.setFullYear(today.getFullYear() - 1) / 1000
+      );
+      const todaySecs = Math.round(Date.now() / 1000);
+
+      //  Base URL
+      const baseURL = "https://api.coingecko.com/api/v3/coins/";
+      // Request URL
+      const requestURL = `${baseURL}${searchData.id}/market_chart/range?vs_currency=usd&from=${yearAgoSecs}&to=${todaySecs}`;
+
+      // HTTP call
+      axios({ url: requestURL })
+        .then((response) => {
+          if (favs.length === 0) {
+            setFavs([
+              ...favs,
+              {
+                name: searchData.name,
+                image: searchData.image,
+                data: response.data,
+              },
+            ]),
+              setCurrentFav({
+                name: searchData.name,
+                image: searchData.image,
+                data: response.data,
+              });
+          } else {
+            setFavs([
+              ...favs,
+              {
+                name: searchData.name,
+                image: searchData.image,
+                data: response.data,
+              },
+            ]);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      // TODO: you may want to return something to the ui to indicate whether the selected fav is already in the favs array
+      console.log("fav already in favs array");
+    }
   };
 
   // Switch currency displayed in chart
@@ -185,6 +199,12 @@ function App() {
         })
       );
     }
+  };
+
+  // Function to run on navigation away from search page - not yet connected properly
+  const clearSearch = () => {
+    console.log("search cleared");
+    return setData(state);
   };
 
   return (
@@ -221,6 +241,7 @@ function App() {
                 data={data}
                 setData={setData}
                 addFav={addFav}
+                clearSearch={clearSearch}
               />
             )
           }
@@ -261,4 +282,4 @@ export default App;
 
 // TODO: refactor API calls - pass a single request to node and access all endpoints from backend.
 // TODO: address error caused by empty favourties array
-// TODO: Links in navbar on search page - these propogate additional links at small screen widths. Is this a problem?
+// TODO: Links in navbar on search page - these transform into additional links at small screen widths. Is this a problem?

@@ -76,9 +76,11 @@ function LineChart(props) {
   return (
     <Container
       fluid
-      className="border border-dark bg-light rounded-3 w-100 h-50 chart-wrapper"
+      className="border border-dark bg-light rounded-3 w-100 h-50 chart-wrapper p-2"
     >
-      <Line className="chart" options={options} data={data} />
+      <div className="shadow-sm">
+        <Line className="chart" options={options} data={data} />
+      </div>
     </Container>
   );
 }
