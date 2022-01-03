@@ -1,0 +1,20 @@
+.image-wrapper {
+  height: 30px;
+}
+
+.price-tool-tip:hover {
+  cursor: pointer;
+}
+
+.trends-container {
+  height: 250px;
+  overflow-y: scroll;
+}
+
+$breakpoint-sm: 768px;
+@media (max-width: $breakpoint-sm) {
+  .trends-container {
+    height: 450px;
+    overflow-y: scroll;
+  }
+}

@@ -57,14 +57,14 @@ function LineChart(props) {
     },
   };
 
-  const labels = getLabelData(props.favData);
+  const labels = getLabelData(props.favData && props.favData);
 
   const data = {
     labels,
     datasets: [
       {
         label: props.coinName,
-        data: getPriceData(props.favData),
+        data: getPriceData(props.favData && props.favData),
         color: "rgb(255, 99, 132)",
         borderColor: "rgb(102, 149, 238)",
         backgroundColor: "rgb(102, 149, 238)",

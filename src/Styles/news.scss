@@ -8,3 +8,16 @@ a:hover {
 a:visited {
   color: rgb(121, 121, 121);
 }
+
+.news-container {
+  height: 250px;
+  overflow-y: scroll;
+}
+
+$breakpoint-sm: 768px;
+@media (max-width: $breakpoint-sm) {
+  .news-container {
+    height: 500px;
+    overflow-y: scroll;
+  }
+}

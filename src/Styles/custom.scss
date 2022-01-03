@@ -2,11 +2,12 @@
 $theme-colors: (
   "primary": #c6d4e9,
   "secondary": rgb(255, 180, 83),
-  "dark": rgb(37, 37, 37),
-  "light": white,
-  "info": rgb(229, 253, 253),
-  "danger": orangered,
   "success": rgb(0, 204, 0),
+  "danger": orangered,
+  "warning": yellow,
+  "info": cornflowerblue,
+  "light": white,
+  "dark": rgb(37, 37, 37),
 );
 
 $box-shadow: 0 0.2rem 0.5rem rgba(black, 0.5);

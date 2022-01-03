@@ -7,6 +7,11 @@ import LineChart from "./LineChart";
 import { Container, Col, Row } from "react-bootstrap";
 
 function Dashboard(props) {
+  const emptyData = [
+    [0, 0],
+    [0, 0],
+  ];
+
   return (
     <Container fluid className="p-0">
       <Row className="gx-0 bg-primary h-auto">
@@ -30,8 +35,14 @@ function Dashboard(props) {
           <Container fluid className="h-100 p-0">
             <Row className="my-1 px-3 h-75">
               <LineChart
-                coinName={props.currentFav.name}
-                favData={props.currentFav.data.prices}
+                coinName={
+                  props.currentFav
+                    ? props.currentFav.name
+                    : "Select a Coin from the Search Page"
+                }
+                favData={
+                  props.currentFav ? props.currentFav.data.prices : emptyData
+                }
               />
             </Row>
             <Row className="d-none d-lg-flex gx-2 p-0 h-25 mb-1">

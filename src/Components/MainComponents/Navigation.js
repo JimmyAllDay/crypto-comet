@@ -1,9 +1,16 @@
 import React from "react";
 
-import { Navbar, Container, Nav } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+  Tooltip,
+  OverlayTrigger,
+} from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 import cryptoicon from "../../Assets/cryptoicon.svg";
+import { BsQuestionCircle } from "react-icons/bs";
 
 function Navigation() {
   return (
@@ -11,14 +18,18 @@ function Navigation() {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand href="/" className="d-flex">
-            <h3 className="my-auto p-0 me-3">Crypto Comet </h3>
-            <img
-              src={cryptoicon}
-              width="50"
-              height="50"
-              className="d-inline-block bg-light"
-              alt="Crypto Comet logo"
-            />
+            <div className="d-flex">
+              <h3 className="my-auto p-0 me-sm-3">Crypto Comet</h3>
+            </div>
+            <div>
+              <img
+                src={cryptoicon}
+                width="50"
+                height="50"
+                className="d-inline-block bg-light"
+                alt="Crypto Comet logo"
+              />
+            </div>
           </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -36,6 +47,22 @@ function Navigation() {
             <LinkContainer to="/trends" className="d-lg-none">
               <Nav.Link href="/trends">Trends</Nav.Link>
             </LinkContainer>
+            <OverlayTrigger
+              delay={{ hide: 450, show: 300 }}
+              overlay={(props) => (
+                <Tooltip {...props}>
+                  Crypto Comet is a simple dashboard interface optimised for
+                  desktop devices.
+                </Tooltip>
+              )}
+              placement="left"
+            >
+              <Nav.Item className="my-auto ms-auto">
+                <h3>
+                  <BsQuestionCircle />
+                </h3>
+              </Nav.Item>
+            </OverlayTrigger>
           </Nav>
         </Navbar.Collapse>
       </Container>
