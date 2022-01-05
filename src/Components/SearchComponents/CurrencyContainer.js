@@ -9,14 +9,12 @@ import CoinsHeader from "./CoinsHeader";
 import { Container } from "react-bootstrap";
 
 function CurrencyList(props) {
-  // const { loading, data, error, errorMessage, pagData } = props;
-
   const currencies = props.pagData.map(function (coin, index) {
     return <Coin key={index} data={coin} addFav={props.addFav} />;
   });
 
   return (
-    <Container fluid className="border border-dark rounded-1 bg-light p-0">
+    <Container fluid className="border border-dark rounded-1 bg-light p-1">
       <CoinsHeader />
       {currencies}
     </Container>

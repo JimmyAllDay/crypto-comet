@@ -51,7 +51,7 @@ function TrendingContainer(props) {
           type="dark"
           effect="solid"
         >
-          {`$ ${coin.item.price_btc} / USD`}
+          {`$ ${coin.item.price_btc}`}
         </ReactTooltip>
       </Container>
     );

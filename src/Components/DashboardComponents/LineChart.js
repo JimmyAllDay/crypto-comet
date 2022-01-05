@@ -69,6 +69,12 @@ function LineChart(props) {
         borderColor: "rgb(102, 149, 238)",
         backgroundColor: "rgb(102, 149, 238)",
         yAxisID: "y",
+        pointRadius: 0,
+        fill: {
+          target: "origin",
+          above: "rgb(255, 0, 0)", // Area will be red above the origin
+          below: "rgb(0, 0, 255)", // And blue below the origin
+        },
       },
     ],
   };
@@ -78,9 +84,7 @@ function LineChart(props) {
       fluid
       className="border border-dark bg-light rounded-3 w-100 h-50 chart-wrapper p-2"
     >
-      <div className="shadow-sm">
-        <Line className="chart" options={options} data={data} />
-      </div>
+      <Line className="chart" options={options} data={data} />
     </Container>
   );
 }

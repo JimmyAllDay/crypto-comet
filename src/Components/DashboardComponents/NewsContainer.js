@@ -44,7 +44,7 @@ function NewsContainer(props) {
   return (
     <Container
       fluid
-      className="border border-dark rounded-3 p-1 pe-3 bg-light news-container"
+      className="border border-dark rounded-3 p-1 bg-light news-container"
     >
       <div className="mb-2 p-1 d-flex">
         <h6 className="my-auto rounded-1 w-auto px-2 py-1">News</h6>

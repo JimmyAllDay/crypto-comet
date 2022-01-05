@@ -1,10 +1,14 @@
 /* Pagination Component Styling */
+
+.pagination-links,
+.pagination-links a:hover,
+.pagination-l-n-links:hover {
+  color: white !important;
+}
+
 .pagination-container {
   .active-pag {
     background-color: secondary;
-  }
-  a:hover {
-    color: white;
   }
 }
 
@@ -19,12 +23,13 @@
 .pag-break {
   text-align: center;
   color: white;
-  width: 1.7em;
+  width: 1.5em;
   user-select: none;
 }
 
+.active-pag,
 .active-pag a {
-  background-color: var(--blue-yonder-dull-light);
+  background-color: cornflowerblue;
 }
 .pagination-prev,
 .pagination-next {
@@ -32,7 +37,6 @@
   color: white;
   font-size: 1em;
   width: 3em;
-  border: 1px solid var(--blue-yonder-dull-light);
   border-radius: 3px;
 }
 .pagination-prev {

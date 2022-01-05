@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button } from "react-bootstrap";
+import { Container, Col, Button } from "react-bootstrap";
 
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
@@ -14,26 +14,69 @@ function Coin(props) {
     price_change_percentage_24h,
   } = props.data;
 
+  const checkNameLength = (name) => {
+    const mediumName = { fontSize: "0.8em" };
+    const largeName = { fontSize: "0.6em" };
+
+    if (name.length > 17) {
+      return largeName;
+    } else if (name.length > 12 && name.length <= 17) {
+      return mediumName;
+    }
+  };
+
+  const reduceInt = (int) => {
+    if (int.toString().length > 8) {
+      const array = Array.from(String(int), Number);
+      array.splice(4);
+      const firstChar = array.shift();
+      return `${firstChar}.${array.slice(1).join("")}...`;
+    } else {
+      return int;
+    }
+  };
+
   return (
-    <div className="d-flex m-2 rounded-1 coin shadow-sm">
-      <div className="col-1 m-auto text-center">{market_cap_rank}</div>
-      <div className="col-1 m-auto icon-container">
+    <Container fluid className="p-1 d-flex rounded-1 border border-dark mb-1">
+      <Col xs={1} sm={1} className="ps-1">
+        {market_cap_rank}
+      </Col>
+      <Col xs={2} sm={1}>
         <img
           className="mx-auto"
           src={image}
           alt={`${name} logo`}
           style={{ height: "30px" }}
         />
-      </div>
-      <div className="col-3 m-auto m-1 text-center">{name}</div>
-      <div className="col-1 m-auto border-start m-1 text-center d-none d-md-inline">
+      </Col>
+      <Col xs={5} sm={3} className="d-none d-sm-inline text-center">
+        {name}
+      </Col>
+      <Col xs={5} className="d-sm-none">
+        <Button
+          variant="outline-info"
+          size="sm"
+          className="w-100"
+          onClick={() => {
+            props.addFav(props.data);
+          }}
+        >
+          <p className="my-auto" style={checkNameLength(name)}>
+            {name}
+          </p>
+        </Button>
+      </Col>
+      <Col sm={1} className="d-none d-md-inline text-center">
         {symbol}
-      </div>
-      <div className="col-2 m-auto border-start m-1 text-center">
-        <div>{current_price}</div>
-      </div>
-      <div
-        className={`col m-auto border-start m-1 text-center d-none d-md-inline 
+      </Col>
+      <Col
+        xs={4}
+        sm={2}
+        className="text-end text-sm-center my-auto"
+      >{`$ ${reduceInt(current_price)}`}</Col>
+      <Col
+        sm={2}
+        className={`d-none d-sm-inline text-sm-center m-auto py-1"
             ${price_change_percentage_24h > 0 ? "text-success" : "text-danger"}
           `}
       >
@@ -43,10 +86,10 @@ function Coin(props) {
         ) : (
           <IoMdArrowDropdown />
         )}
-      </div>
-      <div className="col-2 m-auto border-start m-1 text-center py-1">
+      </Col>
+      <Col className="d-none d-sm-inline text-center">
         <Button
-          variant="outline-dark"
+          variant="outline-info"
           size="sm"
           onClick={() => {
             props.addFav(props.data);
@@ -54,8 +97,8 @@ function Coin(props) {
         >
           Add
         </Button>
-      </div>
-    </div>
+      </Col>
+    </Container>
   );
 }
 

@@ -7,7 +7,7 @@ import "../../Styles/paginationComp.scss";
 
 function PaginationComp(props) {
   return (
-    <Container fluid className="p-0 ms-2 pagination-container">
+    <Container fluid className="p-0 pagination-container">
       <ReactPaginate
         pageCount={props.pageCount}
         onPageChange={(e) => {
@@ -19,7 +19,7 @@ function PaginationComp(props) {
         nextLabel={"next"}
         breakLabel={"..."}
         containerClassName={"pagination mt-1"}
-        previousClassName={"pagination-prev border border-dark ms-2"}
+        previousClassName={"pagination-prev border border-dark"}
         nextClassName={"pagination-next border border-dark ms-1"}
         previousLinkClassName={"pagination-l-n-links"}
         nextLinkClassName={"pagination-l-n-links"}

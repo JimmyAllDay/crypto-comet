@@ -34,24 +34,20 @@ function SearchPage(props) {
           <FormControl
             type="search"
             className="search-bar"
-            placeholder="Search currencies"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2"
+            placeholder="Search and add currencies"
             onChange={(e) => filterRes(e.target.value, props.state)}
           />
         </InputGroup>
       </Row>
-      <Row>
-        <div className="mt-1 px-3">
-          <CurrencyContainer
-            addFav={props.addFav}
-            loading={props.loading}
-            error={props.error}
-            errorMessage={props.errorMessage}
-            data={props.data}
-            pagData={currentPageData}
-          />
-        </div>
+      <Row className="mt-1 mx-1 d-flex">
+        <CurrencyContainer
+          addFav={props.addFav}
+          loading={props.loading}
+          error={props.error}
+          errorMessage={props.errorMessage}
+          data={props.data}
+          pagData={currentPageData}
+        />
         <PaginationComp pageCount={pageCount} clickHandler={handlePageClick} />
       </Row>
     </Container>
