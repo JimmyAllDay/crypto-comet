@@ -14,7 +14,7 @@ function CoinsHeader() {
       <Col xs={5} sm={3} className="text-center">
         Currency
       </Col>
-      <Col sm={1} className="d-none d-md-inline">
+      <Col sm={1} className="d-none d-md-inline ps-md-4">
         Symbol
       </Col>
       <Col xs={4} sm={2} className="text-end text-sm-center pe-1">

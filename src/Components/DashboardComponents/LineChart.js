@@ -5,6 +5,7 @@ import { Line } from "react-chartjs-2";
 
 import {
   Chart as ChartJS,
+  Filler,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -15,6 +16,7 @@ import {
 } from "chart.js";
 
 ChartJS.register(
+  Filler,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -65,16 +67,17 @@ function LineChart(props) {
       {
         label: props.coinName,
         data: getPriceData(props.favData && props.favData),
+        fill: true,
         color: "rgb(255, 99, 132)",
         borderColor: "rgb(102, 149, 238)",
-        backgroundColor: "rgb(102, 149, 238)",
+        backgroundColor: "rgb(102, 149, 238, 0.2)",
         yAxisID: "y",
         pointRadius: 0,
-        fill: {
-          target: "origin",
-          above: "rgb(255, 0, 0)", // Area will be red above the origin
-          below: "rgb(0, 0, 255)", // And blue below the origin
-        },
+        // fill: {
+        //   target: "origin",
+        //   above: "rgb(255, 0, 0)", // Area will be red above the origin
+        //   below: "rgb(0, 0, 255)", // And blue below the origin
+        // },
       },
     ],
   };

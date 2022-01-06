@@ -37,9 +37,9 @@ function Coin(props) {
   };
 
   return (
-    <Container fluid className="p-1 d-flex rounded-1 border border-dark mb-1">
-      <Col xs={1} sm={1} className="ps-1">
-        {market_cap_rank}
+    <Container fluid className="p-1 d-flex rounded-1 shadow mb-2">
+      <Col xs={1} sm={1} className="ps-1 d-flex">
+        <p className="my-auto">{market_cap_rank}</p>
       </Col>
       <Col xs={2} sm={1}>
         <img
@@ -49,8 +49,8 @@ function Coin(props) {
           style={{ height: "30px" }}
         />
       </Col>
-      <Col xs={5} sm={3} className="d-none d-sm-inline text-center">
-        {name}
+      <Col xs={5} sm={3} className="d-none d-sm-flex">
+        <p className="my-auto">{name}</p>
       </Col>
       <Col xs={5} className="d-sm-none">
         <Button

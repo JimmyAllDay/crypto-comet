@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "./Navigation";
 import LoadingState from "./LoadingState";
-// import Footer from "./Footer";
 import Dashboard from "../DashboardComponents/Dashboard";
 import SearchPage from "../SearchComponents/SearchPage";
 
@@ -91,7 +90,7 @@ function App() {
           setState(responseOne.data);
           setData(responseOne.data);
 
-          // Set boolean value to end loading state
+          // End loading state
           setDashLoading(false);
         })
       )
@@ -273,13 +272,19 @@ function App() {
           }
         />
       </Routes>
-      {/* <Footer /> */}
     </Container>
   );
 }
 
 export default App;
 
-// TODO: refactor API calls - pass a single request to node and access all endpoints from backend.
-// TODO: address error caused by empty favourties array
-// TODO: Links in navbar on search page - these transform into additional links at small screen widths. Is this a problem?
+//TODO: Searchbar and placeholder text should shrink on screenwidth change
+//TODO: Update logic of searchpage so that a message shows if no results are returned
+//TODO: error handling for API calls
+//TODO: News container - orange label reads 'news' and not a keyword
+//TODO: refactor API calls - pass a single request to node and access all endpoints from backend.
+//TODO: Cross-browser functionality
+//TODO: Seearchpage behaviour - navigating away after a search leaves the page in the searched state. You want this to reset.
+//TODO: Write tests for relevant components
+//TODO: Footer
+//TODO: Add background image to search page
