@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 import axios from "axios";
 
 const app = express();
@@ -7,6 +8,15 @@ app.use(cors());
 
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || 5000;
+
+// eslint-disable-next-line no-undef
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+  app.get("*", (req, res) => {
+    // eslint-disable-next-line no-undef
+    req.sendFile(path.resolve(__dirname, "build", "index.html"));
+  });
+}
 
 // Log if server is running
 app.listen(port, () => console.log(`Listening on port ${port}`));
