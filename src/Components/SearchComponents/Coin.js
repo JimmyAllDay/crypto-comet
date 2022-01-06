@@ -37,7 +37,7 @@ function Coin(props) {
   };
 
   return (
-    <Container fluid className="p-1 d-flex rounded-1 shadow mb-2">
+    <Container fluid className="p-1 d-flex rounded-1 border mb-2">
       <Col xs={1} sm={1} className="ps-1 d-flex">
         <p className="my-auto">{market_cap_rank}</p>
       </Col>
@@ -50,7 +50,7 @@ function Coin(props) {
         />
       </Col>
       <Col xs={5} sm={3} className="d-none d-sm-flex">
-        <p className="my-auto">{name}</p>
+        <p className="m-auto">{name}</p>
       </Col>
       <Col xs={5} className="d-sm-none">
         <Button
