@@ -9,13 +9,18 @@ import CoinsHeader from "./CoinsHeader";
 import { Container } from "react-bootstrap";
 
 function CurrencyList(props) {
-  const currencies = props.pagData.map(function (coin, index) {
-    return <Coin key={index} data={coin} addFav={props.addFav} />;
+  const { pagData, data, addFav } = props;
+
+  const currencies = pagData.map(function (coin, index) {
+    return <Coin key={index} data={coin} addFav={addFav} />;
   });
+
+  const noResults =
+    "There are no results with that search term in the top 250 currencies. Try another.";
 
   return (
     <Container fluid className="border border-dark rounded-1 bg-light p-1">
-      <CoinsHeader />
+      {data.length > 0 ? <CoinsHeader /> : noResults}
       {currencies}
     </Container>
   );

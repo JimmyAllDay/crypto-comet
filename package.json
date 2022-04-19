@@ -1,5 +1,5 @@
 {
-  "name": "caleb-brown-crypto",
+  "name": "crypto-comet",
   "version": "0.1.0",
   "private": true,
   "homepage": "http://jimmyallday.github.io/crypto-comet-component",
@@ -32,9 +32,9 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
+    "server": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "start-react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -60,6 +60,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": "14.17.3"
   },
   "type": "module"
 }

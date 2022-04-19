@@ -5,6 +5,7 @@ import PaginationComp from "./PaginationComp";
 import { Container, Row, InputGroup, FormControl } from "react-bootstrap";
 
 function SearchPage(props) {
+  console.log(props.data);
   const [currentPage, setCurrentPage] = useState(0);
 
   // Pagination logic derived from https://ihsavru.medium.com/react-paginate-implementing-pagination-in-react-f199625a5c8e
@@ -48,7 +49,12 @@ function SearchPage(props) {
           data={props.data}
           pagData={currentPageData}
         />
-        <PaginationComp pageCount={pageCount} clickHandler={handlePageClick} />
+        {props.data.length > 25 ? (
+          <PaginationComp
+            pageCount={pageCount}
+            clickHandler={handlePageClick}
+          />
+        ) : null}
       </Row>
     </Container>
   );

@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import path from "path";
+// import path from "path";
 import axios from "axios";
 
 const app = express();
@@ -9,17 +9,21 @@ app.use(cors());
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || 5000;
 
-// eslint-disable-next-line no-undef
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-  app.get("*", (req, res) => {
-    // eslint-disable-next-line no-undef
-    req.sendFile(path.resolve(__dirname, "build", "index.html"));
-  });
-}
+// app.use(express.static(path.join(__dirname, "build")));
 
-// Log if server is running
-app.listen(port, () => console.log(`Listening on port ${port}`));
+// app.get("/", (req, res) => {
+//   // eslint-disable-next-line no-undef
+//   res.sendFile(path.join(__dirname, "public", "index.html"));
+// });
+
+// // eslint-disable-next-line no-undef
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("build"));
+//   app.get("*", (req, res) => {
+//     // eslint-disable-next-line no-undef
+//     req.sendFile(path.resolve(__dirname, "build", "index.html"));
+//   });
+// }
 
 // News API variables
 const newsBaseUrl = "https://newsdata.io/api/1/news?";
@@ -44,3 +48,6 @@ app.get("/news_api", async (req, res) => {
   const resData = await getNews();
   await res.send(resData);
 });
+
+// Log if server is running
+app.listen(port, () => console.log(`Listening on port ${port}`));

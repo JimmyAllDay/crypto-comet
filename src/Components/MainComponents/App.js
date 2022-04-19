@@ -264,7 +264,7 @@ function App() {
           element={
             trends ? (
               <Container fluid className="p-1">
-                <TrendingContainer trends={trends} />{" "}
+                <TrendingContainer trends={trends} />
               </Container>
             ) : (
               <LoadingState />
@@ -278,13 +278,13 @@ function App() {
 
 export default App;
 
-//TODO: Searchbar and placeholder text should shrink on screenwidth change
-//TODO: Update logic of searchpage so that a message shows if no results are returned
-//TODO: error handling for API calls
+//TODO: Searchbar and placeholder text should shrink on screenwidth change to xs and sm
 //TODO: News container - orange label reads 'news' and not a keyword
+//TODO: error handling for API calls
 //TODO: refactor API calls - pass a single request to node and access all endpoints from backend.
 //TODO: Cross-browser functionality
-//TODO: Seearchpage behaviour - navigating away after a search leaves the page in the searched state. You want this to reset.
+//TODO: Searchpage behaviour - navigating away after a search leaves the page in the searched state. You want this to reset.
 //TODO: Write tests for relevant components
 //TODO: Footer
 //TODO: Add background image to search page
+//TODO: Update responsive layout for ipad pro size sceens
