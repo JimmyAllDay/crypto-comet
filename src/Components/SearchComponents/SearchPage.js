@@ -5,26 +5,29 @@ import PaginationComp from "./PaginationComp";
 import { Container, Row, InputGroup, FormControl } from "react-bootstrap";
 
 function SearchPage(props) {
+  const { data, setData, state, favs, addFav, loading, error, errorMessage } =
+    props;
+
   const [currentPage, setCurrentPage] = useState(0);
 
   // Pagination logic derived from https://ihsavru.medium.com/react-paginate-implementing-pagination-in-react-f199625a5c8e
   const perPage = 25;
   const offset = currentPage * perPage;
-  const currentPageData = props.data.slice(offset, offset + perPage);
-  const pageCount = Math.ceil(props.data.length / perPage);
+  const currentPageData = data.slice(offset, offset + perPage);
+  const pageCount = Math.ceil(data.length / perPage);
 
   const handlePageClick = (e) => {
     setCurrentPage(e.selected);
   };
 
   function filterRes(input, data) {
-    input === "" && props.setData(props.state);
+    input === "" && setData(state);
     currentPage !== 0 && setCurrentPage(0);
     const userInput = input.toLowerCase();
     const result = data.filter((coin) => {
       return coin.name.toLowerCase().includes(userInput);
     });
-    return props.setData(result);
+    return setData(result);
   }
 
   return (
@@ -35,20 +38,26 @@ function SearchPage(props) {
             type="search"
             className="search-bar"
             placeholder="Search and add currencies"
-            onChange={(e) => filterRes(e.target.value, props.state)}
+            onChange={(e) => filterRes(e.target.value, state)}
           />
         </InputGroup>
       </Row>
       <Row className="mt-1 mx-1 d-flex">
         <CurrencyContainer
-          addFav={props.addFav}
-          loading={props.loading}
-          error={props.error}
-          errorMessage={props.errorMessage}
-          data={props.data}
+          favs={favs}
+          addFav={addFav}
+          loading={loading}
+          error={error}
+          errorMessage={errorMessage}
+          data={data}
           pagData={currentPageData}
         />
-        <PaginationComp pageCount={pageCount} clickHandler={handlePageClick} />
+        {data.length > 25 && (
+          <PaginationComp
+            pageCount={pageCount}
+            clickHandler={handlePageClick}
+          />
+        )}
       </Row>
     </Container>
   );
