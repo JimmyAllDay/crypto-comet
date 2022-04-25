@@ -1,10 +1,10 @@
 import React from "react";
 
 import LoadingState from "./LoadingState";
-import Dashboard from "../DashboardComponents/Dashboard";
-import SearchPage from "../SearchComponents/SearchPage";
-import NewsContainer from "../DashboardComponents/NewsContainer";
-import TrendingContainer from "../DashboardComponents/TrendingContainer";
+import Dashboard from "../pages/dashboard/Dashboard";
+import SearchPage from "../pages/search/SearchPage";
+import NewsContainer from "../pages/dashboard/NewsContainer";
+import TrendingContainer from "../pages/dashboard/TrendingContainer";
 
 import { Container } from "react-bootstrap";
 
