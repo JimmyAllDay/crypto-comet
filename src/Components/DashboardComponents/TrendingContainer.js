@@ -3,11 +3,7 @@ import { Container, Col } from "react-bootstrap";
 
 import ReactTooltip from "react-tooltip";
 
-import "../../Styles/trending.scss";
-// import "../../Styles/trending.css";
-
 function TrendingContainer(props) {
-  console.log(props);
   const trendingCoins = props.trends.map((coin, i) => {
     const reduceInt = (int) => {
       const array = Array.from(String(int), Number);

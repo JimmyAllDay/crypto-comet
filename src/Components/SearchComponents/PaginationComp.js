@@ -3,8 +3,6 @@ import ReactPaginate from "react-paginate";
 
 import { Container } from "react-bootstrap";
 
-import "../../Styles/paginationComp.scss";
-
 function PaginationComp(props) {
   return (
     <Container fluid className="p-0 pagination-container">

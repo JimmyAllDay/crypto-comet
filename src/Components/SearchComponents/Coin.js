@@ -4,7 +4,11 @@ import { Container, Col, Button } from "react-bootstrap";
 
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
-function Coin(props) {
+import LikeButton from "./LikeButton";
+
+export default function Coin(props) {
+  const { addFav, data, favs } = props;
+
   const {
     market_cap_rank,
     image,
@@ -12,7 +16,7 @@ function Coin(props) {
     symbol,
     current_price,
     price_change_percentage_24h,
-  } = props.data;
+  } = data;
 
   const checkNameLength = (name) => {
     const mediumName = { fontSize: "0.8em" };
@@ -58,7 +62,7 @@ function Coin(props) {
           size="sm"
           className="w-100"
           onClick={() => {
-            props.addFav(props.data);
+            addFav(data);
           }}
         >
           <p className="my-auto" style={checkNameLength(name)}>
@@ -88,18 +92,8 @@ function Coin(props) {
         )}
       </Col>
       <Col className="d-none d-sm-inline text-center">
-        <Button
-          variant="outline-info"
-          size="sm"
-          onClick={() => {
-            props.addFav(props.data);
-          }}
-        >
-          Add
-        </Button>
+        <LikeButton data={data} addFav={addFav} favs={favs} />
       </Col>
     </Container>
   );
 }
-
-export default Coin;

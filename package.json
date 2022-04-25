@@ -33,8 +33,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+<<<<<<< HEAD
     "server": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
+=======
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "server": "node server.js",
+>>>>>>> refactor
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -60,9 +65,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
   },
   "engines": {
     "node": "14.17.3"
   },
   "type": "module"
+=======
+  }
+>>>>>>> refactor
 }

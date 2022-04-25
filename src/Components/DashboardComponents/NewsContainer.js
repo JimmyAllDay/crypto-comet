@@ -5,39 +5,42 @@ import { Container } from "react-bootstrap";
 import { MdAccessTime } from "react-icons/md";
 import { BsPerson } from "react-icons/bs";
 
-import "../../Styles/news.scss";
-
-function NewsContainer(props) {
-  const newsItems = props.news.map((article, i) => {
+function NewsContainer({ news }) {
+  const newsItems = news.map((article, i) => {
+    const { keywords, link, title, description, creator, pubDate } = article;
     return (
-      <div key={i} className="d-flex flex-column mb-2 rounded-1 shadow">
+      <Container
+        key={i}
+        fluid
+        className="p-0 d-flex flex-column mb-2 rounded-1 shadow"
+      >
         <div className="ms-auto me-5 px-1 w-auto bg-secondary text-light">
-          News
+          {keywords ? keywords[0] : "News"}
         </div>
         <div className="p-2">
-          <a className="news-article-link" href={article.link}>
-            <div className="news-title mb-2"> {article.title}</div>
+          <a className="news-article-link" href={link}>
+            <div className="news-title mb-2"> {title}</div>
             <div className="mb-2" style={{ fontSize: "0.8em" }}>
-              {article.description}
+              {description}
             </div>
             <div className="article-link" style={{ fontSize: "0.7em" }}></div>
             <div className="d-flex flex-column">
               <div className="d-flex">
                 <BsPerson className="my-auto me-1" />
                 <div className="my-auto" style={{ fontSize: "0.7em" }}>
-                  {article.creator}
+                  {creator}
                 </div>
               </div>
               <div className="d-flex">
                 <MdAccessTime className="my-auto me-1" />
                 <div className="my-auto" style={{ fontSize: "0.7em" }}>
-                  {article.pubDate}
+                  {pubDate}
                 </div>
               </div>
             </div>
           </a>
         </div>
-      </div>
+      </Container>
     );
   });
 
