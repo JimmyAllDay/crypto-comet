@@ -1,0 +1,156 @@
+@import "./custom.scss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+$breakpoint-lg: 992px;
+$breakpoint-sm: 575px;
+
+body {
+  background-color: rgb(37, 37, 37);
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+@media (max-width: $breakpoint-lg) {
+  .news-container {
+    height: 500px;
+    overflow-y: scroll;
+  }
+  .trends-container {
+    height: 450px;
+    overflow-y: scroll;
+  }
+}
+
+//favourites
+.fav {
+  cursor: pointer;
+}
+
+.selected-fav-wrapper {
+  padding: 2px;
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 180, 83),
+    rgb(255, 195, 83)
+  );
+}
+
+.selected-fav-element {
+  background-color: rgb(41, 41, 41);
+}
+
+//News
+a:link {
+  text-decoration: none;
+  color: rgb(68, 68, 68);
+}
+.news-article-link:hover {
+  color: black !important;
+}
+a:visited {
+  color: rgb(121, 121, 121);
+}
+
+.news-container {
+  height: 250px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #aaaaaa;
+}
+
+//Pagination Comp
+/* Pagination Component Styling */
+
+.pagination-links,
+.pagination-links a:hover,
+.pagination-l-n-links:hover {
+  color: white !important;
+}
+
+.pagination-container {
+  .active-pag {
+    background-color: secondary;
+  }
+}
+
+.pagination-links,
+.pagination-l-n-links {
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+}
+
+.pag-page,
+.pag-break {
+  text-align: center;
+  color: white;
+  width: 1.5em;
+  user-select: none;
+}
+
+.active-pag,
+.active-pag a {
+  background-color: cornflowerblue;
+}
+.pagination-prev,
+.pagination-next {
+  text-align: center;
+  color: white;
+  font-size: 1em;
+  width: 3em;
+  border-radius: 3px;
+}
+.pagination-prev {
+  user-select: none;
+}
+.pagination-next {
+  user-select: none;
+}
+
+//Trending
+.image-wrapper {
+  height: 30px;
+}
+
+.price-tool-tip:hover {
+  cursor: pointer;
+}
+
+.trends-container {
+  height: 250px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #aaaaaa;
+}
+
+.button-style {
+  width: 50px;
+  height: 30px;
+}
+.button-style:hover {
+  color: white;
+}
+
+@media (max-width: $breakpoint-sm) {
+  .button-style {
+    width: 200px;
+  }
+}

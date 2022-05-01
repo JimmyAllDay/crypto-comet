@@ -1,0 +1,17 @@
+// Color Customisations
+$theme-colors: (
+  "primary": #c6d4e9,
+  "secondary": rgb(255, 180, 83),
+  "success": rgb(0, 204, 0),
+  "danger": orangered,
+  "warning": yellow,
+  "info": rgb(42, 116, 253),
+  "light": white,
+  "dark": rgb(37, 37, 37),
+);
+
+$box-shadow: 0 0.2rem 0.5rem rgba(black, 0.5);
+$box-shadow-sm: 0 0.2rem 0.5rem rgba(black, 0.3);
+
+// import bootstrap stylesheet
+@import "~bootstrap/scss/bootstrap";
