@@ -9,7 +9,7 @@ const config = {
   // In production: uses environment variable or defaults to empty string (update after deploying backend)
   API_BASE_URL: isDevelopment 
     ? 'http://localhost:5000' 
-    : 'https://your-backend-url.onrender.com',
+    : 'https://crypto-comet.onrender.com',
 };
 
 export default config;
