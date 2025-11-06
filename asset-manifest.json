@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/crypto-comet/static/css/main.eabf7b89.css",
+    "main.js": "/crypto-comet/static/js/main.0984eed6.js",
+    "static/js/453.0da38e88.chunk.js": "/crypto-comet/static/js/453.0da38e88.chunk.js",
+    "static/media/cryptoicon.svg": "/crypto-comet/static/media/cryptoicon.2b11932e4026eb34c66670ae717a078b.svg",
+    "index.html": "/crypto-comet/index.html",
+    "main.eabf7b89.css.map": "/crypto-comet/static/css/main.eabf7b89.css.map",
+    "main.0984eed6.js.map": "/crypto-comet/static/js/main.0984eed6.js.map",
+    "453.0da38e88.chunk.js.map": "/crypto-comet/static/js/453.0da38e88.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eabf7b89.css",
+    "static/js/main.0984eed6.js"
+  ]
+}
