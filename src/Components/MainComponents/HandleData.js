@@ -3,6 +3,7 @@ import React, { useEffect, useState, cloneElement } from "react";
 import { useLocation } from "react-router";
 
 import axios from "axios";
+import config from "../../config";
 
 export default function HandleData(props) {
   const path = useLocation().pathname;
@@ -32,9 +33,9 @@ export default function HandleData(props) {
     setDashLoading(true);
 
     // Urls
-    const coinsUrl = "http://localhost:5000/coins";
-    const trendingUrl = "http://localhost:5000/trending";
-    const newsURL = "http://localhost:5000/news";
+    const coinsUrl = `${config.API_BASE_URL}/coins`;
+    const trendingUrl = `${config.API_BASE_URL}/trending`;
+    const newsURL = `${config.API_BASE_URL}/news`;
 
     // Get requests
     const coins = axios.get(coinsUrl);
@@ -90,7 +91,7 @@ export default function HandleData(props) {
 
     //If fav is not in array, request fav data
     if (requestFav(favs, coin)) {
-      const requestUrl = `http://localhost:5000/fav?id=${coin}`;
+      const requestUrl = `${config.API_BASE_URL}/fav?id=${coin}`;
       axios({ url: requestUrl })
         .then((response) => {
           if (favs.length === 0) {

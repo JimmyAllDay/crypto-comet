@@ -5,7 +5,7 @@ const axios = require("axios");
 
 // News API variables
 const newsBaseUrl = "https://newsdata.io/api/1/news?";
-const apiKey = "apikey=pub_2580e55599ffc98709c952188774d7157514";
+const apiKey = `apikey=${process.env.NEWS_API_KEY}`;
 const apiQuery = "&q=crypto&language=en";
 
 const getNews = async () => {

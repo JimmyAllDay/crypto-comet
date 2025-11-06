@@ -14,9 +14,6 @@ export default function CurrencyContainer(props) {
     return <Coin key={index} data={coin} addFav={addFav} favs={favs} />;
   });
 
-  const noResults =
-    "There are no results with that search term in the top 250 currencies. Try another.";
-
   return (
     <Container fluid className="border border-dark rounded-1 bg-light p-1">
       {data.length !== 0 ? (
