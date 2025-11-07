@@ -9,6 +9,7 @@ export default function HandleData(props) {
   const path = useLocation().pathname;
   // Dashboard state
   const [dashLoading, setDashLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [favs, setFavs] = useState(null);
   const [currentFav, setCurrentFav] = useState(null);
   const [trends, setTrends] = useState(null);
@@ -31,6 +32,7 @@ export default function HandleData(props) {
   //Get initial data via Node
   const getData = () => {
     setDashLoading(true);
+    setError(null);
 
     // Urls
     const coinsUrl = `${config.API_BASE_URL}/coins`;
@@ -50,6 +52,17 @@ export default function HandleData(props) {
           const coinsRes = responses[0];
           const trendingRes = responses[1];
           const newsRes = responses[2];
+
+          // Validate response data
+          if (!coinsRes.data || !coinsRes.data.coins || !coinsRes.data.coins[0] || !coinsRes.data.fav) {
+            throw new Error("Invalid coins data structure");
+          }
+          if (!trendingRes.data || !trendingRes.data.coins) {
+            throw new Error("Invalid trending data structure");
+          }
+          if (!newsRes.data || !newsRes.data.results) {
+            throw new Error("Invalid news data structure");
+          }
 
           setFavs([
             {
@@ -75,8 +88,9 @@ export default function HandleData(props) {
         })
       )
       .catch((errors) => {
-        //TODO: handle errors
-        console.log(errors);
+        console.error(errors);
+        setError("Failed to load data. Please refresh the page or try again later.");
+        setDashLoading(false);
       });
   };
 
@@ -147,6 +161,7 @@ export default function HandleData(props) {
 
   const routes = cloneElement(props.routes, {
     dashLoading: dashLoading,
+    error: error,
     favs: favs,
     trends: trends,
     news: news,

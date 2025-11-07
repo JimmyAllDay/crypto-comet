@@ -1,6 +1,7 @@
 import React from "react";
 
 import LoadingState from "./LoadingState";
+import ErrorState from "./ErrorState";
 import Dashboard from "../DashboardComponents/Dashboard";
 import SearchPage from "../SearchComponents/SearchPage";
 import NewsContainer from "../DashboardComponents/NewsContainer";
@@ -13,6 +14,7 @@ import { Routes, Route } from "react-router-dom";
 export default function Routing(props) {
   const {
     dashLoading,
+    error,
     favs,
     trends,
     news,
@@ -31,7 +33,9 @@ export default function Routing(props) {
         exact
         path="/"
         element={
-          dashLoading || favs === null || trends === null || news === null ? (
+          error ? (
+            <ErrorState message={error} />
+          ) : dashLoading || favs === null || trends === null || news === null ? (
             <LoadingState />
           ) : (
             <Dashboard
@@ -49,7 +53,9 @@ export default function Routing(props) {
         exact
         path="/search"
         element={
-          dashLoading ? (
+          error ? (
+            <ErrorState message={error} />
+          ) : dashLoading ? (
             <LoadingState />
           ) : (
             <SearchPage

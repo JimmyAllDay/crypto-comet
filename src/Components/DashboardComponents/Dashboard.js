@@ -41,7 +41,9 @@ function Dashboard(props) {
                     : "Select a Coin from the Search Page"
                 }
                 favData={
-                  props.currentFav ? props.currentFav.data.prices : emptyData
+                  props.currentFav && props.currentFav.data && props.currentFav.data.prices 
+                    ? props.currentFav.data.prices 
+                    : emptyData
                 }
               />
             </Row>
